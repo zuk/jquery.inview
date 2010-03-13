@@ -3,6 +3,8 @@ h1. Element 'in view' Event Plugin
 *Author:* Remy Sharp
 *Pulled from:* "http://remysharp.com/2009/01/26/element-in-view-event-plugin/":http://remysharp.com/2009/01/26/element-in-view-event-plugin/
 
+*NOTE:* "I" here refers to the original author, Remy Sharp.
+
 I've been preparing a few articles for jQuery for Designers and for .net magazine and in doing so I've had to write a plugin that could prove to be useful to share.
 
 I've created an event that will trigger when the element is scrolled in to the viewport.
