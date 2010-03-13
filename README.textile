@@ -1,4 +1,5 @@
 h1. Element 'in view' Event Plugin
+
 *Author:* Remy Sharp
 *Pulled from:* http://remysharp.com/2009/01/26/element-in-view-event-plugin/
 
@@ -37,21 +38,21 @@ Bear in mind if think the element may already be in view, you may need to kick t
 
 The variable after the event argument indicates the visible state in the viewport.
 
-  $('div').bind('inview', function (event, visible) {
-    if (visible == true) {
-      // element is now visible in the viewport
-    } else {
-      // element has gone out of viewport
-    }
-  });
+    $('div').bind('inview', function (event, visible) {
+      if (visible == true) {
+        // element is now visible in the viewport
+      } else {
+        // element has gone out of viewport
+      }
+    });
 
 To stop listening for the event - simply unbind:
 
-  $('div').unbind('inview');
+    $('div').unbind('inview');
 
 Remember you can also bind once:
 
-  $('div').one('inview' fn);
+    $('div').one('inview' fn);
 
 h2. How it works
 
