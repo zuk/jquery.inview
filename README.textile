@@ -24,7 +24,7 @@ To confirm this, open firebug while the element is out of view, and watch the el
 
 h2. Download
 
-Download jQuery inview event plugin: http://remysharp.com/downloads/jquery.inview.js
+Download jQuery inview event plugin: "http://remysharp.com/downloads/jquery.inview.js":http://remysharp.com/downloads/jquery.inview.js
 
 Or from github at: "http://github.com/zuk/jquery.inview":http://github.com/zuk/jquery.inview
 
@@ -39,12 +39,12 @@ Bear in mind if think the element may already be in view, you may need to kick t
 The variable after the event argument indicates the visible state in the viewport.
 
 bc.. $('div').bind('inview', function (event, visible) {
-    if (visible == true) {
-      // element is now visible in the viewport
-    } else {
-      // element has gone out of viewport
-    }
-  });
+  if (visible == true) {
+    // element is now visible in the viewport
+  } else {
+    // element has gone out of viewport
+  }
+});
 
 p. To stop listening for the event - simply unbind:
 
@@ -52,7 +52,7 @@ bc.. $('div').unbind('inview');
 
 p. Remember you can also bind once:
 
-bc..  $('div').one('inview' fn);
+bc.. $('div').one('inview' fn);
 
 h2. How it works
 
