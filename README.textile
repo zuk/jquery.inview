@@ -1,7 +1,7 @@
 h1. Element 'in view' Event Plugin
 
 *Author:* Remy Sharp
-*Pulled from:* http://remysharp.com/2009/01/26/element-in-view-event-plugin/
+*Pulled from:* "http://remysharp.com/2009/01/26/element-in-view-event-plugin/":http://remysharp.com/2009/01/26/element-in-view-event-plugin/
 
 I've been preparing a few articles for jQuery for Designers and for .net magazine and in doing so I've had to write a plugin that could prove to be useful to share.
 
@@ -20,13 +20,13 @@ The example is mostly lorem text, but in the middle of the page is an element wh
 
 To confirm this, open firebug while the element is out of view, and watch the element in question as you scroll it in to view.
 
-http://jsbin.com/ugupa (to edit: http://jsbin.com/ugupa/edit)
+"http://jsbin.com/ugupa":http://jsbin.com/ugupa (to edit: "http://jsbin.com/ugupa/edit":http://jsbin.com/ugupa/edit)
 
 h2. Download
 
 Download jQuery inview event plugin: http://remysharp.com/downloads/jquery.inview.js
 
-Or from github at: http://github.com/zuk/jquery.inview
+Or from github at: "http://github.com/zuk/jquery.inview":http://github.com/zuk/jquery.inview
 
 h2. Usage
 
@@ -34,25 +34,31 @@ The script makes use of the new $.support properties - so it will only work with
 
 The event will only fire when the element comes in to view of the viewport, and out of view. It won't keep firing if the user scrolls and the element remains in view.
 
-Bear in mind if think the element may already be in view, you may need to kick the scroll event (using $(window).scroll()). If you include this plugin last (i.e. after you've hooked in to the event), then the script will automatically trigger the scroll event - therefore sending the event to your bound element.
+Bear in mind if think the element may already be in view, you may need to kick the scroll event (using @$(window).scroll()@). If you include this plugin last (i.e. after you've hooked in to the event), then the script will automatically trigger the scroll event - therefore sending the event to your bound element.
 
 The variable after the event argument indicates the visible state in the viewport.
 
-    $('div').bind('inview', function (event, visible) {
-      if (visible == true) {
-        // element is now visible in the viewport
-      } else {
-        // element has gone out of viewport
-      }
-    });
+@
+  $('div').bind('inview', function (event, visible) {
+    if (visible == true) {
+      // element is now visible in the viewport
+    } else {
+      // element has gone out of viewport
+    }
+  });
+@
 
 To stop listening for the event - simply unbind:
 
-    $('div').unbind('inview');
+@
+  $('div').unbind('inview');
+@
 
 Remember you can also bind once:
 
+@
     $('div').one('inview' fn);
+@
 
 h2. How it works
 
