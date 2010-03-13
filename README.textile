@@ -46,13 +46,16 @@ bc.. $('div').bind('inview', function (event, visible) {
     }
   });
 
+
 To stop listening for the event - simply unbind:
 
 bc..  $('div').unbind('inview');
 
+
 Remember you can also bind once:
 
 bc..  $('div').one('inview' fn);
+
 
 h2. How it works
 
