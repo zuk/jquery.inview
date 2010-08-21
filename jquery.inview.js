@@ -16,7 +16,8 @@
         return height;
     }
 
-    $(window).scroll(function () {
+    function do_main_check()
+    {
         var vpH = getViewportHeight(),
             scrolltop = (document.documentElement.scrollTop ?
                 document.documentElement.scrollTop :
@@ -50,11 +51,14 @@
                 }
             });
         }
-    });
+    }
+
+    $(window).scroll(do_main_check);
+    $(window).resize(do_main_check);
     
     // kick the event to pick up any elements already in view.
     // note however, this only works if the plugin is included after the elements are bound to 'inview'
     $(function () {
-        $(window).scroll();
+        do_main_check();
     });
 })(jQuery);
