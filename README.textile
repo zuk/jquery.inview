@@ -69,6 +69,44 @@ p. Remember you can also bind once:
 
 bc.. $('div').one('inview' fn);
 
+h2. More complex example
+
+This way we can attach inView to some DIV in our code to, for example, detect when it FULLY readed by user (user sees it's bottom and top) and only after 1 seconds of view, so after we call some out stats function or whatever
+
+bc.. $(someMyOneDiv).bind('inview', function(e,v,t){
+  var o = $(this);
+
+  if(o.data('inviewtimer'))
+  {
+    clearTimeout(o.data('inviewtimer'));
+    o.removeData('inviewtimer');
+  }
+
+  if(v)
+  {
+    o.data('inviewtimer', setTimeout(function()
+    {
+      if(t == 'top')
+        o.data('seenTop',true);
+      else if(t == 'bottom')
+        o.data('seenBottom',true);
+      else
+      {
+        o.data('seenTop',true);
+        o.data('seenBottom',true);
+      }
+
+      if( o.data('seenTop') && o.data('seenBottom') )
+      {
+        o.unbind('inview');
+        // here we will do WHAT WHE NEED (for ex. Call Ajax stats collector)
+        ...
+      }
+    }, 1000));
+  }
+});
+
+
 h2. How it works
 
 When the window is scrolled, the event checks the position of the elements against the viewport height and the scrollTop position.
