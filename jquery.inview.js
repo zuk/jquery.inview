@@ -46,7 +46,11 @@
                 } else if (scrolltop < (top + height)) {
                     if (!inview) {
                         $el.data('inview', true);
-                        $el.trigger('inview', [ true ]);
+                        $el.trigger('inview', [ true, (
+                        	scrolltop > top ? 'bottom' :
+                        	(scrolltop + vpH) < (top + height) ? 'top' :
+                        	'both'
+                        ) ]);
                     }
                 }
             });
