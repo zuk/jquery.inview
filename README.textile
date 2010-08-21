@@ -106,6 +106,7 @@ bc.. $(someMyOneDiv).bind('inview', function(e,v,t){
   }
 });
 
+p. Maybe there's a way to do this more elegant. And someone needed to test this on IE6-7-8 (they're nasty).
 
 h2. How it works
 
