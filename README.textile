@@ -39,10 +39,23 @@ The event will only fire when the element comes in to view of the viewport, and 
 Bear in mind if think the element may already be in view, you may need to kick the scroll event (using @$(window).scroll()@). If you include this plugin last (i.e. after you've hooked in to the event), then the script will automatically trigger the scroll event - therefore sending the event to your bound element.
 
 The variable after the event argument indicates the visible state in the viewport.
+The third variable (topOrBottomOrBoth) detects which part of viewport is visible to user.
 
-bc.. $('div').bind('inview', function (event, visible) {
+bc.. $('div').bind('inview', function (event, visible, topOrBottomOrBoth) {
   if (visible == true) {
     // element is now visible in the viewport
+    if (topOrBottomOrBoth == 'top')
+    {
+      // top part of element is visible
+    }
+    else if (topOrBottomOrBoth == 'bottom')
+    {
+      // bottom part of element is visible
+    }
+    else
+    {
+      // whole part of element is visible
+    }
   } else {
     // element has gone out of viewport
   }
