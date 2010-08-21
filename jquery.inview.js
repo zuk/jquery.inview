@@ -44,13 +44,10 @@
                         $el.trigger('inview', [ false ]);                        
                     }
                 } else if (scrolltop < (top + height)) {
-                    if (!inview) {
-                        $el.data('inview', true);
-                        $el.trigger('inview', [ true, (
-                        	scrolltop > top ? 'bottom' :
-                        	(scrolltop + vpH) < (top + height) ? 'top' :
-                        	'both'
-                        ) ]);
+                    var visPart = ( scrolltop > top ? 'bottom' : (scrolltop + vpH) < (top + height) ? 'top' : 'both' );
+                    if (!inview || inview !== visPart) {
+                      $el.data('inview', visPart);
+                      $el.trigger('inview', [ true, visPart]);
                     }
                 }
             });
