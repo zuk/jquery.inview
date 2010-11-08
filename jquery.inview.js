@@ -35,7 +35,9 @@
     function check_inview()
     {
         var vpH = getViewportHeight(),
-            scrolltop = (document.documentElement.scrollTop ?
+            scrolltop = (window.pageYOffset ?
+                window.pageYOffset : 
+                document.documentElement.scrollTop ?
                 document.documentElement.scrollTop :
                 document.body.scrollTop),
             elems = [];
