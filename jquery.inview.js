@@ -5,6 +5,9 @@
 (function ($) {
     function getViewportHeight() {
         var height = window.innerHeight; // Safari, Opera
+        // if this is correct then return it. iPad has compat Mode, so will
+        // go into check clientHeight (which has the wrong value).
+        if (height) { return height; }
         var mode = document.compatMode;
 
         if ( (mode || !$.support.boxModel) ) { // IE, Gecko
