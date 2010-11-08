@@ -24,8 +24,8 @@
         // Manually calculate offset rather than using jQuery's offset
         // This works-around iOS < 4 on iPad giving incorrect value
         // cf http://bugs.jquery.com/ticket/6446#comment:9
-        var curtop = 0
-        for (obj = debug; obj != null; obj = obj.offsetParent)
+        var curtop = 0;
+        for (var obj = debug; obj !== null; obj = obj.offsetParent)
         {
             curtop += obj.offsetTop;
         }
