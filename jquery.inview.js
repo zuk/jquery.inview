@@ -15,6 +15,19 @@
 
         return height;
     }
+    
+    function offsetTop(debug)
+    {
+        // Manually calculate offset rather than using jQuery's offset
+        // This works-around iOS < 4 on iPad giving incorrect value
+        // cf http://bugs.jquery.com/ticket/6446#comment:9
+        var curtop = 0
+        for (obj = debug; obj != null; obj = obj.offsetParent)
+        {
+            curtop += obj.offsetTop;
+        }
+        return curtop;
+    }
 
     function check_inview()
     {
@@ -34,7 +47,7 @@
         if (elems.length) {
             $(elems).each(function () {
                 var $el = $(this),
-                    top = $el.offset().top,
+                    top = offsetTop(this),
                     height = $el.height(),
                     inview = $el.data('inview') || false;
 
