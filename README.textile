@@ -1,3 +1,5 @@
+*NOTE:* This repo is not maintained. You probably want to have a looksee here instead: https://github.com/protonet/jquery.inview/network
+
 h1. Element 'in view' Event Plugin
 
 *Author:* Remy Sharp
