@@ -1,4 +1,5 @@
-*NOTE:* This repo is not maintained. You probably want to have a looksee here instead: https://github.com/protonet/jquery.inview/network
+*NOTE:* This repo is not maintained. You probably want to have a looksee here instead: 
+https://github.com/protonet/jquery.inview
 
 h1. Element 'in view' Event Plugin
 
