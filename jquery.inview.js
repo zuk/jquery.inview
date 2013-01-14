@@ -3,6 +3,8 @@
  * url http://remysharp.com/2009/01/26/element-in-view-event-plugin/
  */
 (function ($) {
+    var shouldCheckInView = false;
+
     function getViewportHeight() {
         var height = window.innerHeight; // Safari, Opera
         // if this is correct then return it. iPad has compat Mode, so will
@@ -69,13 +71,26 @@
         }
     }
 
-    $(window).scroll(check_inview);
-    $(window).resize(check_inview);
-    $(window).click(check_inview);
-    
+    function triggerInViewChecker() {
+        shouldCheckInView = true;
+    }
+
+    $(window).scroll(triggerInViewChecker);
+    $(window).resize(triggerInViewChecker);
+    $(window).click(triggerInViewChecker);
     // kick the event to pick up any elements already in view.
     // note however, this only works if the plugin is included after the elements are bound to 'inview'
-    $(function () {
-        check_inview();
-    });
+    $(function() {
+        triggerInViewChecker();
+    })
+
+    // Check every 250 milliseconds if a scroll/click/resize/ready event is triggered
+    // Source: http://ejohn.org/blog/learning-from-twitter/
+    setInterval(function() {
+        if ( shouldCheckInView ) {
+            shouldCheckInView = false;
+
+            check_inview();
+        }
+    }, 250);
 })(jQuery);
