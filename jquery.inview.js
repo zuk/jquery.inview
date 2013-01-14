@@ -33,12 +33,12 @@
     function check_inview() {
         var vpH = getViewportHeight(),
             scrolltop = (window.pageYOffset ?
-                window.pageYOffset : 
+                window.pageYOffset :
                 document.documentElement.scrollTop ?
                 document.documentElement.scrollTop :
                 document.body.scrollTop),
             elems = [];
-        
+
         // naughty, but this is how it knows which elements to check for
         $.each($.cache, function () {
             if (this.events && this.events.inview) {
@@ -56,7 +56,7 @@
                 if (scrolltop > (top + height) || scrolltop + vpH < top) {
                     if (inview) {
                         $el.data('inview', false);
-                        $el.trigger('inview', [ false ]);                        
+                        $el.trigger('inview', [ false ]);
                     }
                 } else if (scrolltop < (top + height)) {
                     var visPart = ( scrolltop > top ? 'bottom' : (scrolltop + vpH) < (top + height) ? 'top' : 'both' );
