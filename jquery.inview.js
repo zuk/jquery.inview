@@ -71,16 +71,16 @@
         }
     }
 
-    function triggerInViewChecker() {
-        shouldCheckInView = true;
-    }
+    var $win = $(window);
 
-    $(window).scroll(triggerInViewChecker);
-    $(window).resize(triggerInViewChecker);
-    $(window).click(triggerInViewChecker);
-    // kick the event to pick up any elements already in view.
+    // ready.inview kicks the event to pick up any elements already in view.
     // note however, this only works if the plugin is included after the elements are bound to 'inview'
-    $(window).ready(triggerInViewChecker);
+    // you can call it manually in your application by calling $(window).trigger('checkInView');
+    $win.on('checkInView.inview click.inview ready.inview', check_inview);
+
+    $win.on('scroll.inview resize.inview', function() {
+        shouldCheckInView = true;
+    });
 
     // Source: http://ejohn.org/blog/learning-from-twitter/
     setInterval(function() {
