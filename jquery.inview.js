@@ -82,7 +82,6 @@
     // note however, this only works if the plugin is included after the elements are bound to 'inview'
     $(window).ready(triggerInViewChecker);
 
-    // Check every 250 milliseconds if a scroll/click/resize/ready event is triggered
     // Source: http://ejohn.org/blog/learning-from-twitter/
     setInterval(function() {
         if ( shouldCheckInView ) {
