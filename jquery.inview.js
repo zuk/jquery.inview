@@ -3,6 +3,8 @@
  * url http://remysharp.com/2009/01/26/element-in-view-event-plugin/
  */
 (function ($) {
+    'use strict';
+
     var shouldCheckInView = false;
 
     function getViewportHeight() {
@@ -13,7 +15,7 @@
         var mode = document.compatMode;
 
         if ( (mode || !$.support.boxModel) ) { // IE, Gecko
-            height = (mode == 'CSS1Compat') ?
+            height = (mode === 'CSS1Compat') ?
             document.documentElement.clientHeight : // Standards
             document.body.clientHeight; // Quirks
         }
