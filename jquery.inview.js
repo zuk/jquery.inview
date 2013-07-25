@@ -79,7 +79,7 @@
         });
     }
 
-    function createFunctionToLimitExecutionToOncePerDelay(fn, delay) {
+    function createFunctionLimitedToOneExecutionPerDelay(fn, delay) {
         var shouldRun = false;
         var timer = null;
 
@@ -103,7 +103,7 @@
 
     // ready.inview kicks the event to pick up any elements already in view.
     // note however, this only works if the plugin is included after the elements are bound to 'inview'
-    var runner = createFunctionToLimitExecutionToOncePerDelay(checkInView, 100);
+    var runner = createFunctionLimitedToOneExecutionPerDelay(checkInView, 100);
     $(window).on('checkInView.inview click.inview ready.inview scroll.inview resize.inview', runner);
 
 })(jQuery);
