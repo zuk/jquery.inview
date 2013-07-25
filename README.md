@@ -153,6 +153,27 @@ through, looking for the elements tied to the 'inview' event.
 This way the user can treat it like a native event on the page.
 
 
+## Offset Feature
+
+If you decide to use this code for lazy loading images, you might be interested
+in preloading the image when it's getting close to entering the viewport. To
+do this, you can now add a `data-offset` attribute to your target element.
+For example:
+
+```html
+<img data-offset="300">
+```
+
+or in JavaScript:
+
+```js
+$('img').attr('data-offset', 300);
+```
+
+This allows the image to preload as it approaches the viewport so there's a
+better chance it will complete before the user even sees it.
+
+
 [jQuery for Designers]: http://jqueryfordesigners.com/
 [.net magazine]: http://www.netmag.co.uk/
 [lazyload plugin]: http://www.appelsiini.net/projects/lazyload
