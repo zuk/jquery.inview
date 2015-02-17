@@ -1,0 +1,27 @@
+{
+    "name": "jquery.inview",
+    "version": "1.0.0",
+    "description" : "",
+    "main": [
+        "jquery.inview.js",
+        "jquery.inview.min.js"
+    ],
+    "homepage": "https://github.com/zuk/jquery.inview",
+    "authors": [
+        "Remy Sharp <remy@leftlogic.com>"
+    ],
+    "keywords": [
+        "jquery",
+        "event",
+        "view",
+        "viewport"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
