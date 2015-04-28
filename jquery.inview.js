@@ -43,38 +43,36 @@
 
     function checkInView() {
         var viewportTop = getScrollTop(),
-            viewportBottom = viewportTop + getViewportHeight(),
-            elems = [];
+            viewportBottom = viewportTop + getViewportHeight();
 
-        // naughty, but this is how it knows which elements to check for
-        $.each($.cache, function() {
-            if (this.events && this.events.inview) {
-                elems.push(this.handle.elem);
-            }
-        });
 
-        $(elems).each(function() {
+
+
+        $('.inview').each(function() {
             var $el = $(this),
                 elTop = offsetTop(this),
                 elHeight = $el.height(),
                 elBottom = elTop + elHeight,
                 wasInView = $el.data('inview') || false,
                 offset = $el.data('offset') || 0,
-                inView = elTop > viewportTop && elBottom < viewportBottom,
-                isBottomVisible = elBottom + offset > viewportTop && elTop < viewportTop,
-                isTopVisible = elTop - offset < viewportBottom && elBottom > viewportBottom,
+                inView = elTop >= viewportTop && elBottom <= viewportBottom,
+                isBottomVisible = elBottom + offset >= viewportTop && elTop <= viewportTop,
+                isTopVisible = elTop - offset <= viewportBottom && elBottom >= viewportBottom,
                 inViewWithOffset = inView || isBottomVisible || isTopVisible ||
-                    (elTop < viewportTop && elBottom > viewportBottom);
+                    (elTop <= viewportTop && elBottom >= viewportBottom);
+
 
             if (inViewWithOffset) {
                 var visPart = (isTopVisible) ? 'top' : (isBottomVisible) ? 'bottom' : 'both';
                 if (!wasInView || wasInView !== visPart) {
                     $el.data('inview', visPart);
                     $el.trigger('inview', [true, visPart]);
+
                 }
             } else if (!inView && wasInView) {
                 $el.data('inview', false);
                 $el.trigger('inview', [false]);
+
             }
         });
     }
@@ -89,7 +87,7 @@
                 return;
             }
             shouldRun = false;
-            fn();
+            window.requestAnimationFrame(fn);
             timer = setTimeout(function() {
                 timer = null;
                 if (shouldRun) {
